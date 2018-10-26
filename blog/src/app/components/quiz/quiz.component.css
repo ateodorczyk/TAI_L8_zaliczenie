@@ -1,0 +1,39 @@
+body{
+  background-color: #fff;
+}
+#container {
+  margin: 20px;
+  width: 200px;
+  height: 100px;
+}
+
+.navbar, .navbar-dark, .navbar-expand-lg{
+  background-color: #12a9ba;
+}
+
+
+#quiz{
+  display: none;
+}
+
+#question{
+  font-weight: bold;
+}
+
+#resultContainer{
+  display: none;
+}
+
+.answer:hover{
+  background-color: #ededed;
+}
+
+
+#myBar {
+  width: 0%;
+  height: 30px;
+  background-color: #4CAF50;
+  text-align: center;
+  line-height: 30px;
+  color: white;
+}

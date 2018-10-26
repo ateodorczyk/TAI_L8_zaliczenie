@@ -1,0 +1,19 @@
+h4{
+  line-height: 60px;
+}
+
+textarea{
+  width: 100%;
+}
+#container {
+  margin: 20px;
+  width: 200px;
+  height: 100px;
+}
+.navbar, .navbar-dark, .navbar-expand-lg{
+  background-color: #12a9ba;
+}
+
+.center{
+  text-align: center;
+}
