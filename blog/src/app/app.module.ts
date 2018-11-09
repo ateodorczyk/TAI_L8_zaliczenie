@@ -16,6 +16,13 @@ import { BlogItemImageComponent } from './components/blog-item-image/blog-item-i
 import { SummaryPipe } from './components/summary.pipe';
 import { BlogItemDetailComponent } from './components/blog-item-detail/blog-item-detail.component';
 
+import {HttpClientModule} from '@angular/common/http';
+import {DataServiceService} from "./services/data-service.service";
+import { FilterPipe } from './pipes/filter.pipe';
+
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from "@angular/forms";
+
 const appRoutes: Routes = [
   {
     path: 'home',
@@ -51,14 +58,20 @@ const appRoutes: Routes = [
     BlogItemTextComponent,
     BlogItemImageComponent,
     SummaryPipe,
-    BlogItemDetailComponent
+    BlogItemDetailComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(appRoutes),
   ],
-  providers: [],
+  providers: [
+    DataServiceService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

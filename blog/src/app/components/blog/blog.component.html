@@ -1,5 +1,21 @@
 <div class="container">
-  <div *ngFor="let item of items">
-    <app-blog-item [image]="item.image" [text]="item.text" [id]="item.id"></app-blog-item>
+  <div class="input-group col-5">
+    <input [(ngModel)]="filterText" (ngModelChange)="setQuery()" type="search" class="form-control" placeholder="Wyszukaj..." aria-label="Recipient's username" aria-describedby="basic-addon2">
+    <div class="input-group-append">
+      <button class="btn btn-outline-secondary" type="button">Szukaj</button>
+    </div>
   </div>
+
+
+  <div *ngFor="let item of items | filter:filterText" class="item">
+    <app-blog-item [item]="item"></app-blog-item>
+  </div>
+
+
 </div>
+
+<!--
+<div *ngFor="let item of items">
+  <app-blog-item [image]="item.image" [text]="item.text" [id]="item.id"></app-blog-item>
+</div>
+-->
