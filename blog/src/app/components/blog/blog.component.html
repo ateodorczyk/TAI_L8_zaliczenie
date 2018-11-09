@@ -1,5 +1,5 @@
 <div class="container">
-  <div *ngFor="let item of items; let i = index">
-    <app-blog-item [image]="item.image" [text]="item.text" [id]="i"></app-blog-item>
+  <div *ngFor="let item of items">
+    <app-blog-item [image]="item.image" [text]="item.text" [id]="item.id"></app-blog-item>
   </div>
 </div>
