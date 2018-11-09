@@ -17,7 +17,7 @@ import { SummaryPipe } from './components/summary.pipe';
 
 const appRoutes: Routes = [
   {
-    path: '',
+    path: 'home',
     component: HomeComponent
   },
   {
