@@ -2,6 +2,8 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {DataServiceService} from "../../services/data-service.service";
 import {Subscription} from "rxjs";
 import {ActivatedRoute, Route, Router} from "@angular/router";
+import {PostService} from "../../services/post.service";
+import {PhotoService} from "../../services/photo.service";
 
 @Component({
   selector: 'app-blog',
@@ -10,16 +12,17 @@ import {ActivatedRoute, Route, Router} from "@angular/router";
 })
 export class BlogComponent implements OnInit, OnDestroy {
 
-  items = [];
+  posts = [];
+  photos = [];
   private sub: Subscription;
 
   filterText: string;
 
-  constructor(private dataService: DataServiceService, private router: Router, private route: ActivatedRoute){}
+  constructor(private photoService: PhotoService, private postService: PostService, private router: Router, private route: ActivatedRoute){}
 
 
   ngOnInit() {
-    this.getPosts();
+    this.getPhotos();
     this.route.queryParams.subscribe(params => {
       this.filterText = params['title'];
     });
@@ -30,8 +33,12 @@ export class BlogComponent implements OnInit, OnDestroy {
     this.sub.unsubscribe();
   }
 
+  getPhotos(){
+    this.sub = this.photoService.getAllPhotos().subscribe(photos => this.photos = photos);
+  }
+
   getPosts(){
-    this.sub = this.dataService.getAll().subscribe(posts => this.items = posts);
+    this.sub = this.postService.getAllPosts().subscribe(posts => this.posts = posts);
   }
 
   setQuery(){

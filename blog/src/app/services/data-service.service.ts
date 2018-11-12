@@ -7,21 +7,16 @@ import {map} from "rxjs/operators";
 })
 export class DataServiceService {
 
-  private url = 'https://jsonplaceholder.typicode.com/';
-
-  constructor(private http: HttpClient) {
+  constructor(private url: string, private http: HttpClient) {
 
   }
 
-  getAll(){
-    return this.http.get(this.url + 'posts')
-      .pipe(
-        map((x: any[]) => x.slice(0.20))
-    );
+  getAll(api){
+    return this.http.get(this.url + api);
   }
 
-  get(id: number){
-    return this.http.get(this.url + 'posts/' + id);
+  get(api, id){
+    return this.http.get(this.url + api + '/' + id);
   }
 
 }

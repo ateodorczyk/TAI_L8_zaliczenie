@@ -6,11 +6,10 @@
     </div>
   </div>
 
+  <div class="card-group" *ngFor="let photo of photos | filter:filterText" class="item">
 
-  <div *ngFor="let item of items | filter:filterText" class="item">
-    <app-blog-item [item]="item"></app-blog-item>
+    <app-blog-item [photo]="photo"></app-blog-item>
   </div>
-
 
 </div>
 

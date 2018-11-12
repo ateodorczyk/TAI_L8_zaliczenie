@@ -11,9 +11,7 @@ export class BlogItemComponent implements OnInit {
   @Input() text:string;
   @Input() id:number;
 
-
-
-  @Input() item;
+  @Input() photo;
 
   constructor() { }
 

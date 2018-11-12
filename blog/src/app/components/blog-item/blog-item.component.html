@@ -1,6 +1,7 @@
-<div class="card" style="width: 18rem;">
+<div class="card">
+  <app-blog-item-image [image]="photo.url"></app-blog-item-image>
  <!-- <app-blog-item-image [image]="image"></app-blog-item-image> -->
   <div class="card-body">
-    <app-blog-item-text [text]="item.title" [id]="item.id"></app-blog-item-text>
+    <app-blog-item-text [text]="photo.title" [id]="photo.id"></app-blog-item-text>
   </div>
 </div>

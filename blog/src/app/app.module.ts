@@ -20,8 +20,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {DataServiceService} from "./services/data-service.service";
 import { FilterPipe } from './pipes/filter.pipe';
 
-import { FormsModule } from '@angular/forms';
-import { ReactiveFormsModule } from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 const appRoutes: Routes = [
   {
