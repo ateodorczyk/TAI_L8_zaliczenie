@@ -21,6 +21,9 @@ import {DataServiceService} from "./services/data-service.service";
 import { FilterPipe } from './pipes/filter.pipe';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SearchBarComponent } from './components/search-bar/search-bar.component';
+import { BlogHomeComponent } from './components/blog-home/blog-home.component';
+import { TextFormatDirective } from './directives/text-format.directive';
 
 const appRoutes: Routes = [
   {
@@ -37,7 +40,7 @@ const appRoutes: Routes = [
   },
   {
     path: 'blog',
-    component: BlogComponent,
+    component: BlogHomeComponent,
   },
   { path: 'blog/detail/:id',
     component: BlogItemDetailComponent
@@ -58,7 +61,10 @@ const appRoutes: Routes = [
     BlogItemImageComponent,
     SummaryPipe,
     BlogItemDetailComponent,
-    FilterPipe
+    FilterPipe,
+    SearchBarComponent,
+    BlogHomeComponent,
+    TextFormatDirective
   ],
   imports: [
     BrowserModule,

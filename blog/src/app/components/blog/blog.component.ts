@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {DataServiceService} from "../../services/data-service.service";
 import {Subscription} from "rxjs";
 import {ActivatedRoute, Route, Router} from "@angular/router";
@@ -12,11 +12,11 @@ import {PhotoService} from "../../services/photo.service";
 })
 export class BlogComponent implements OnInit, OnDestroy {
 
+  @Input() filterText:string;
+
   posts = [];
   photos = [];
   private sub: Subscription;
-
-  filterText: string;
 
   constructor(private photoService: PhotoService, private postService: PostService, private router: Router, private route: ActivatedRoute){}
 
