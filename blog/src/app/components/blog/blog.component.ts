@@ -15,14 +15,14 @@ export class BlogComponent implements OnInit, OnDestroy {
   @Input() filterText:string;
 
   posts = [];
-  photos = [];
+  // photos = [];
   private sub: Subscription;
 
-  constructor(private photoService: PhotoService, private postService: PostService, private router: Router, private route: ActivatedRoute){}
+  constructor(private postService: PostService, private router: Router, private route: ActivatedRoute){}
 
 
   ngOnInit() {
-    this.getPhotos();
+    this.getPosts();
     this.route.queryParams.subscribe(params => {
       this.filterText = params['title'];
     });
@@ -33,9 +33,9 @@ export class BlogComponent implements OnInit, OnDestroy {
     this.sub.unsubscribe();
   }
 
-  getPhotos(){
-    this.sub = this.photoService.getAllPhotos().subscribe(photos => this.photos = photos);
-  }
+  // getPhotos(){
+  //   this.sub = this.photoService.getAllPhotos().subscribe(photos => this.photos = photos);
+  // }
 
   getPosts(){
     this.sub = this.postService.getAllPosts().subscribe(posts => this.posts = posts);

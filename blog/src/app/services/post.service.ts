@@ -9,16 +9,16 @@ import {map} from "rxjs/operators";
 export class PostService extends DataServiceService{
 
   constructor(http: HttpClient) {
-    super('https://jsonplaceholder.typicode.com', http);
+    super('http://localhost:3000', http);
   }
 
   getAllPosts(){
-    return this.getAll('/posts').pipe(
+    return this.getAll('/api/posts').pipe(
       map((x: any[]) => x.slice(0,20))
     );
   }
 
   getPost(id){
-    return this.get('/posts', id);
+    return this.get('/api/post', id);
   }
 }

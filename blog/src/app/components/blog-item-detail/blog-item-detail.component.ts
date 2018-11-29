@@ -26,16 +26,16 @@ export class BlogItemDetailComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.id = this.route.snapshot.paramMap.get('id');
     this.getPost();
-    this.getPhoto();
+   // this.getPhoto();
   }
 
   getPost(){
     this.sub = this.postService.getPost(this.id).subscribe(post => this.post = post);
   }
 
-  getPhoto(){
-    this.sub = this.photoService.getPhoto(this.id).subscribe(photo => this.photo = photo);
-  }
+  // getPhoto(){
+  //   this.sub = this.photoService.getPhoto(this.id).subscribe(photo => this.photo = photo);
+  // }
 
 
 

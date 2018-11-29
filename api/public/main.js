@@ -260,7 +260,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<app-search-bar (name)=\"getName($event)\"></app-search-bar>\n<app-blog [filterText]=\"filterText\"></app-blog>\n"
+module.exports = "<app-search-bar (name)=\"getName($event)\"></app-search-bar>\r\n<app-blog [filterText]=\"filterText\"></app-blog>\r\n"
 
 /***/ }),
 
@@ -326,7 +326,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\r\n  <div class=\"card\">\r\n    <app-blog-item-image [image]=\"photo.url\"></app-blog-item-image>\r\n    <div class=\"card-body\">\r\n      <h1>{{photo.title}}</h1>\r\n      <p>{{post.body}}</p>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div class=\"container\">\r\n  <div class=\"card\">\r\n    <app-blog-item-image [image]=\"post.url\"></app-blog-item-image>\r\n    <div class=\"card-body\">\r\n      <h1>{{post.title}}</h1>\r\n      <p>{{post.content}}</p>\r\n    </div>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -369,15 +369,11 @@ var BlogItemDetailComponent = /** @class */ (function () {
     BlogItemDetailComponent.prototype.ngOnInit = function () {
         this.id = this.route.snapshot.paramMap.get('id');
         this.getPost();
-        this.getPhoto();
+        // this.getPhoto();
     };
     BlogItemDetailComponent.prototype.getPost = function () {
         var _this = this;
         this.sub = this.postService.getPost(this.id).subscribe(function (post) { return _this.post = post; });
-    };
-    BlogItemDetailComponent.prototype.getPhoto = function () {
-        var _this = this;
-        this.sub = this.photoService.getPhoto(this.id).subscribe(function (photo) { return _this.photo = photo; });
     };
     BlogItemDetailComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
@@ -556,7 +552,7 @@ module.exports = ".card{\r\n  margin: 20px;\r\n  display: inline-block;\r\n}\r\n
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"card\">\r\n  <app-blog-item-image [image]=\"photo.url\"></app-blog-item-image>\r\n <!-- <app-blog-item-image [image]=\"image\"></app-blog-item-image> -->\r\n  <div class=\"card-body\">\r\n    <app-blog-item-text [text]=\"photo.title\" [id]=\"photo.id\"></app-blog-item-text>\r\n  </div>\r\n</div>\r\n"
+module.exports = "<div class=\"card\">\r\n  <app-blog-item-image [image]=\"post.url\"></app-blog-item-image>\r\n <!-- <app-blog-item-image [image]=\"image\"></app-blog-item-image> -->\r\n  <div class=\"card-body\">\r\n    <app-blog-item-text [text]=\"post.title\" [id]=\"post.id\"></app-blog-item-text>\r\n  </div>\r\n</div>\r\n"
 
 /***/ }),
 
@@ -601,7 +597,7 @@ var BlogItemComponent = /** @class */ (function () {
     __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Input"])(),
         __metadata("design:type", Object)
-    ], BlogItemComponent.prototype, "photo", void 0);
+    ], BlogItemComponent.prototype, "post", void 0);
     BlogItemComponent = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Component"])({
             selector: 'app-blog-item',
@@ -635,7 +631,7 @@ module.exports = ".input-group{\r\n  margin: 20px 0;\r\n}\r\n\r\n/*# sourceMappi
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\">\r\n  <div class=\"input-group col-5\">\r\n    <div class=\"input-group-append\">\r\n      <button class=\"btn btn-outline-secondary\" type=\"button\">Szukaj</button>\r\n    </div>\r\n  </div>\r\n\r\n  <div class=\"card-group\" *ngFor=\"let photo of photos | filter:filterText\" class=\"item\">\r\n\r\n    <app-blog-item [photo]=\"photo\"></app-blog-item>\r\n  </div>\r\n\r\n</div>\r\n\r\n<!--\r\n<div *ngFor=\"let item of items\">\r\n  <app-blog-item [image]=\"item.image\" [text]=\"item.text\" [id]=\"item.id\"></app-blog-item>\r\n</div>\r\n-->\r\n"
+module.exports = "<div class=\"container\">\r\n  <div class=\"input-group col-5\">\r\n    <div class=\"input-group-append\">\r\n      <button class=\"btn btn-outline-secondary\" type=\"button\">Szukaj</button>\r\n    </div>\r\n  </div>\r\n\r\n  <div class=\"card-group\" *ngFor=\"let post of posts | filter:filterText\" class=\"item\">\r\n\r\n    <app-blog-item [post]=\"post\"></app-blog-item>\r\n  </div>\r\n\r\n</div>\r\n\r\n<!--\r\n<div *ngFor=\"let item of items\">\r\n  <app-blog-item [image]=\"item.image\" [text]=\"item.text\" [id]=\"item.id\"></app-blog-item>\r\n</div>\r\n-->\r\n"
 
 /***/ }),
 
@@ -652,7 +648,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm5/core.js");
 /* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm5/router.js");
 /* harmony import */ var _services_post_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/post.service */ "./src/app/services/post.service.ts");
-/* harmony import */ var _services_photo_service__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../services/photo.service */ "./src/app/services/photo.service.ts");
 var __decorate = (undefined && undefined.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -665,19 +660,16 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 
 
 
-
 var BlogComponent = /** @class */ (function () {
-    function BlogComponent(photoService, postService, router, route) {
-        this.photoService = photoService;
+    function BlogComponent(postService, router, route) {
         this.postService = postService;
         this.router = router;
         this.route = route;
         this.posts = [];
-        this.photos = [];
     }
     BlogComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.getPhotos();
+        this.getPosts();
         this.route.queryParams.subscribe(function (params) {
             _this.filterText = params['title'];
         });
@@ -685,10 +677,9 @@ var BlogComponent = /** @class */ (function () {
     BlogComponent.prototype.ngOnDestroy = function () {
         this.sub.unsubscribe();
     };
-    BlogComponent.prototype.getPhotos = function () {
-        var _this = this;
-        this.sub = this.photoService.getAllPhotos().subscribe(function (photos) { return _this.photos = photos; });
-    };
+    // getPhotos(){
+    //   this.sub = this.photoService.getAllPhotos().subscribe(photos => this.photos = photos);
+    // }
     BlogComponent.prototype.getPosts = function () {
         var _this = this;
         this.sub = this.postService.getAllPosts().subscribe(function (posts) { return _this.posts = posts; });
@@ -706,7 +697,7 @@ var BlogComponent = /** @class */ (function () {
             template: __webpack_require__(/*! ./blog.component.html */ "./src/app/components/blog/blog.component.html"),
             styles: [__webpack_require__(/*! ./blog.component.css */ "./src/app/components/blog/blog.component.css")]
         }),
-        __metadata("design:paramtypes", [_services_photo_service__WEBPACK_IMPORTED_MODULE_3__["PhotoService"], _services_post_service__WEBPACK_IMPORTED_MODULE_2__["PostService"], _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"]])
+        __metadata("design:paramtypes", [_services_post_service__WEBPACK_IMPORTED_MODULE_2__["PostService"], _angular_router__WEBPACK_IMPORTED_MODULE_1__["Router"], _angular_router__WEBPACK_IMPORTED_MODULE_1__["ActivatedRoute"]])
     ], BlogComponent);
     return BlogComponent;
 }());
@@ -996,7 +987,7 @@ module.exports = "\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<input [(ngModel)]=\"filterText\" (ngModelChange)=\"sendFilter($event)\" type=\"search\" class=\"form-control\" placeholder=\"Wyszukaj...\" aria-label=\"Recipient's username\" aria-describedby=\"basic-addon2\" appTextFormat>\n"
+module.exports = "<input [(ngModel)]=\"filterText\" (ngModelChange)=\"sendFilter($event)\" type=\"search\" class=\"form-control\" placeholder=\"Wyszukaj...\" aria-label=\"Recipient's username\" aria-describedby=\"basic-addon2\" appTextFormat>\r\n"
 
 /***/ }),
 
@@ -1335,13 +1326,13 @@ var __metadata = (undefined && undefined.__metadata) || function (k, v) {
 var PostService = /** @class */ (function (_super) {
     __extends(PostService, _super);
     function PostService(http) {
-        return _super.call(this, 'https://jsonplaceholder.typicode.com', http) || this;
+        return _super.call(this, 'localhost:3000', http) || this;
     }
     PostService.prototype.getAllPosts = function () {
-        return this.getAll('/posts').pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (x) { return x.slice(0, 20); }));
+        return this.getAll('/api/posts').pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_3__["map"])(function (x) { return x.slice(0, 20); }));
     };
     PostService.prototype.getPost = function (id) {
-        return this.get('/posts', id);
+        return this.get('/api/post', id);
     };
     PostService = __decorate([
         Object(_angular_core__WEBPACK_IMPORTED_MODULE_0__["Injectable"])({
@@ -1417,7 +1408,7 @@ Object(_angular_platform_browser_dynamic__WEBPACK_IMPORTED_MODULE_1__["platformB
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\student\IdeaProjects\Lab_4v2i\blog\src\main.ts */"./src/main.ts");
+module.exports = __webpack_require__(/*! C:\Users\Aga\Lab_8\blog\src\main.ts */"./src/main.ts");
 
 
 /***/ })

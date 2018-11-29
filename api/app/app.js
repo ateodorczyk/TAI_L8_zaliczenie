@@ -16,8 +16,6 @@ app.use(bodyParser.json({limit: '2048kb'}));
 
 app.use(cors());
 
-// app.use(express.static('app'));
-
 mongoose.connect(config.databaseUrl, {useNewUrlParser: true, useCreateIndex: true}, (error) => {
     if (error) {
         console.error(error);

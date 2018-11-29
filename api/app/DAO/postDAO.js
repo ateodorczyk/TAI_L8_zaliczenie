@@ -7,7 +7,7 @@ import mongoConverter from '../service/mongoConverter';
 
 const postSchema = new mongoose.Schema({
     title: {type: String},
-    url: {type: Number},
+    url: {type: String},
     content: {type: String},
 }, {
     collection: 'post'
