@@ -9,7 +9,7 @@ import {map} from "rxjs/operators";
 export class PostService extends DataServiceService{
 
   constructor(http: HttpClient) {
-    super('http://localhost:3000', http);
+    super('https://jsonplaceholder.typicode.com', http);
   }
 
   getAllPosts(){
