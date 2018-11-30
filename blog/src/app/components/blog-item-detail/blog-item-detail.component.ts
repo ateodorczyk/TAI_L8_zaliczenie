@@ -17,7 +17,7 @@ export class BlogItemDetailComponent implements OnInit, OnDestroy {
 
   private sub: Subscription;
 
-  constructor(private postService: PostService, private photoService: PhotoService, private route: ActivatedRoute) { }
+  constructor(private postService: PostService, private route: ActivatedRoute) { }
 
   ngOnDestroy(){
     this.sub.unsubscribe();

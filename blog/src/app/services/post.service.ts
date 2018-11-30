@@ -21,4 +21,8 @@ export class PostService extends DataServiceService{
   getPost(id){
     return this.get('/api/post', id);
   }
+
+  createPost(post){
+    return this.create('/api/post/', post);
+  }
 }

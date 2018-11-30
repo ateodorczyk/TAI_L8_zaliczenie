@@ -24,6 +24,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { BlogHomeComponent } from './components/blog-home/blog-home.component';
 import { TextFormatDirective } from './directives/text-format.directive';
+import { BlogCreateComponent } from './components/blog-create/blog-create.component';
 
 const appRoutes: Routes = [
   {
@@ -44,7 +45,11 @@ const appRoutes: Routes = [
   },
   { path: 'blog/detail/:id',
     component: BlogItemDetailComponent
-  }];
+  },
+  { path: 'blog/create',
+    component: BlogCreateComponent
+  },
+];
 
 
 
@@ -64,7 +69,8 @@ const appRoutes: Routes = [
     FilterPipe,
     SearchBarComponent,
     BlogHomeComponent,
-    TextFormatDirective
+    TextFormatDirective,
+    BlogCreateComponent
   ],
   imports: [
     BrowserModule,

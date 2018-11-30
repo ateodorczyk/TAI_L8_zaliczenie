@@ -4,6 +4,7 @@ import mongoose from 'mongoose';
 import uniqueValidator from 'mongoose-unique-validator';
 
 import mongoConverter from '../service/mongoConverter';
+import applicationException from '../service/applicationException';
 
 const postSchema = new mongoose.Schema({
     title: {type: String},
