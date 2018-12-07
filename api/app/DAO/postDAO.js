@@ -3,7 +3,7 @@
 import mongoose from 'mongoose';
 import uniqueValidator from 'mongoose-unique-validator';
 
-import mongoConverter from '../service/mongoConverter';
+import mongoConverter from '../service/monConverter';
 import applicationException from '../service/applicationException';
 
 const postSchema = new mongoose.Schema({
