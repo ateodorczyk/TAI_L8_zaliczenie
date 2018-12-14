@@ -30,9 +30,22 @@ export class LoginComponent implements OnInit {
           login: '',
           password: ''
         };
-        this.router.navigate(['/admin']);
+        this.router.navigate(['/blog']);
       }
     });
   }
+
+
+// {
+//   "login": "agteo@email.pl",
+//   "password": "12345"
+// }
+//
+// {
+//   "name": "agteo",
+//   "email": "agteo@email.pl",
+//   "password":"12345"
+// }
+
 
 }
