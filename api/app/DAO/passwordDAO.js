@@ -19,8 +19,8 @@ async function createOrUpdate(data) {
     const result = await PasswordModel.findOneAndUpdate({ userId: data.userId }, _.omit(data, 'id'), { new: true });
     if (!result) {
         const result = await new PasswordModel({ userId: data.userId, password: data.password }).save();
-        if (result[0]) {
-            return mongoConverter(result[0]);
+        if (result) {
+            return mongoConverter(result);
         }
     }
     return result;

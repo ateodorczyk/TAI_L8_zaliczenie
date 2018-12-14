@@ -44,8 +44,8 @@ async function create(user) {
         value: value,
         createDate: momentWrapper.get().valueOf()
     }).save();
-    if (result[0]) {
-        return mongoConverter(result[0]);
+    if (result) {
+        return mongoConverter(result);
     }
     throw applicationException.new(applicationException.BAD_REQUEST, error.message);
 }

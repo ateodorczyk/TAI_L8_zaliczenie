@@ -49,13 +49,13 @@ function createNewOrUpdate(user) {
     });
 }
 
-// async function getByEmailOrName(name) {
-//     const result = await UserModel.findOne({ $or: [{ email: name }, { name: name }] });
-//     if (result) {
-//         return mongoConverter(result);
-//     }
-//     throw applicationException.new(applicationException.NOT_FOUND, 'User not found');
-// }
+async function getByEmailOrName(name) {
+    const result = await UserModel.findOne({ $or: [{ email: name }, { name: name }] });
+    if (result) {
+        return mongoConverter(result);
+    }
+    throw applicationException.new(applicationException.NOT_FOUND, 'User not found');
+}
 //
 // async function get(id) {
 //     const result = await UserModel.findOne({ _id: id });
@@ -71,7 +71,7 @@ function createNewOrUpdate(user) {
 
 export default {
     createNewOrUpdate: createNewOrUpdate,
-    // getByEmailOrName: getByEmailOrName,
+    getByEmailOrName: getByEmailOrName,
     // getUserByActivationHash: getUserByActivationHash,
     // get: get,
     // getAllUsers: getAllUsers,

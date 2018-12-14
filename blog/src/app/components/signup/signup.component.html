@@ -1,0 +1,21 @@
+<form>
+  <div class="input-group">
+    <input [(ngModel)]="credentials.name" formControlName="name" type="text" class="form-control"
+           name="name" placeholder="Nazwa" title="Wprowadź nazwę użytkownika">
+  </div>
+
+  <div class="input-group">
+    <input [(ngModel)]="credentials.email" formControlName="email" type="text" class="form-control"
+           name="name" placeholder="Nazwa" title="Wprowadź email">
+  </div>
+
+  <div class="input-group">
+    <input [(ngModel)]="credentials.password" formControlName="password" type="password" class="form-control"
+           name="password" placeholder="Hasło" title="Wprowadź hasło">
+  </div>
+  <span class="help-block">{{ error }}</span>
+
+  <button (click)="signUp()" class="btn btn-lg btn-pink btn-block" type="submit" title="Przycisk zarejestruj">
+    Zarejestruj
+  </button>
+</form>
