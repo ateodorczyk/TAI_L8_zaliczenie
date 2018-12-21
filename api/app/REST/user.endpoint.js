@@ -38,6 +38,14 @@ const userEndpoint = (router) => {
         }
     });
 
+    router.delete('/api/user/logout/:userId', async (request, response, next) => {
+        try {
+            let result = await business(request).getUserManager().removeHashSession(request.params.userId);
+            response.status(200).send(result);
+        } catch (error) {
+            console.log(error);
+        }
+    });
 
 };
 

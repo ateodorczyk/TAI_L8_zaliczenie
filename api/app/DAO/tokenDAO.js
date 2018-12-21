@@ -58,14 +58,14 @@ async function get(tokenValue) {
     throw applicationException.new(applicationException.UNAUTHORIZED, 'Token not found');
 }
 
-// async function remove(userId) {
-//     return await TokenModel.remove({ userId: userId });
-// }
+async function remove(userId) {
+    return await TokenModel.remove({ userId: userId });
+}
 
 export default {
     create: create,
     get: get,
-    // remove: remove,
+    remove: remove,
 
     tokenTypeEnum: tokenTypeEnum,
     model: TokenModel

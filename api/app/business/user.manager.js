@@ -49,16 +49,17 @@ function create(context) {
     //     return await UserDAO.removeById(id);
     // }
     //
-    // async function removeHashSession(userId) {
-    //     return await TokenDAO.remove(userId);
-    // }
+    async function removeHashSession(userId) {
+        console.log('##########################', userId)
+        return await TokenDAO.remove(userId);
+    }
 
     return {
         authenticate: authenticate,
         getUserByToken: getUserByToken,
         createNewOrUpdate: createNewOrUpdate,
         // removeUserById: removeUserById,
-        // removeHashSession: removeHashSession
+        removeHashSession: removeHashSession
     };
 }
 

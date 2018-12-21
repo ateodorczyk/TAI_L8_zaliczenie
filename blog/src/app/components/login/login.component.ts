@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthServiceService} from "../../services/auth-service.service";
 import {Router} from "@angular/router";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 @Component({
   selector: 'app-login',
@@ -9,18 +10,32 @@ import {Router} from "@angular/router";
 })
 export class LoginComponent implements OnInit {
 
-  credentials;
+  credentials: Credentials;
   logged;
   logout;
+  loginForm: FormGroup;
 
 
-  constructor(private authService: AuthServiceService,
-              private router: Router) { }
-
-  ngOnInit() {
+  constructor(
+    private authService: AuthServiceService,
+    private router: Router,
+    private formBuilder: FormBuilder
+  ) {
+    this.credentials = new Credentials();
+    this.loginForm = this.formBuilder.group({
+      login: ['', Validators.required],
+      password: ['', [Validators.required, Validators.minLength(6)]]
+    });
   }
 
-  signIn() {
+  ngOnInit() {
+
+  }
+
+  onSubmit(){
+    this.credentials.login = this.loginForm.get('login').value;
+    this.credentials.password = this.loginForm.get('password').value;
+
     return this.authService.authenticate(this.credentials).subscribe((result) => {
       if (!result) {
         this.logged = false;
@@ -33,7 +48,16 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/blog']);
       }
     });
+
   }
+
+  get f() { return this.loginForm.controls; }
+
+  signIn() {
+
+  }
+
+
 
 
 // {
@@ -48,4 +72,9 @@ export class LoginComponent implements OnInit {
 // }
 
 
+}
+
+export class Credentials {
+  login?: string;
+  password?: string;
 }

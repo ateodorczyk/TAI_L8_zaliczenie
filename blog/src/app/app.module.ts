@@ -43,19 +43,16 @@ const appRoutes: Routes = [
   {
     path: 'quiz',
     component: QuizComponent,
-    canActivate: [AdminGuard],
     data: {state: 'admin'}
   },
   {
     path: 'blog',
     component: BlogHomeComponent,
-    canActivate: [AdminGuard],
     data: {state: 'admin'}
   },
   {
     path: 'blog/detail/:id',
     component: BlogItemDetailComponent,
-    canActivate: [AdminGuard],
     data: {state: 'admin'}
   },
   {
@@ -65,6 +62,10 @@ const appRoutes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'signup',
+    component: SignupComponent
   }
 ];
 
