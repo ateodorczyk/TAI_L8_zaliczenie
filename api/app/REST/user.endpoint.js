@@ -1,5 +1,6 @@
 'use strict';
 import business from '../business/business.container';
+import auth from "../middleware/auth";
 const userEndpoint = (router) => {
     // router.get('/api/posts', async (request, response, next) => {
     //     try {
@@ -38,7 +39,7 @@ const userEndpoint = (router) => {
         }
     });
 
-    router.delete('/api/user/logout/:userId', async (request, response, next) => {
+    router.delete('/api/user/logout/:userId', auth, async (request, response, next) => {
         try {
             let result = await business(request).getUserManager().removeHashSession(request.params.userId);
             response.status(200).send(result);
